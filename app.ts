@@ -1,9 +1,23 @@
-function add(a: number, b: number) {
-  return a + b;
+const person: {
+  name: string;
+  age: number;
+  hobbies: string[];
+  role: [number, string];
+} = {
+// const person = {
+  name: 'Joan',
+  age: 24,
+  hobbies: ['Sports', 'Cooking'],
+  role: [1, 'author']
 }
 
-const number1 = 5;
-const number2 = 2.8;
+console.log(person)
 
-const result = add(number1, number2);
-console.log(result);
+// let favoriteActivities: string[];
+// favoriteActivities = ['Sports'];
+
+
+// for(let hobby of person.hobbies) {
+//   console.log(hobby.toUpperCase())
+//   // console.log(hobby.map())
+// }

@@ -1,7 +1,14 @@
-function add(a, b) {
-    return a + b;
-}
-var number1 = 5;
-var number2 = 2.8;
-var result = add(number1, number2);
-console.log(result);
+var person = {
+    // const person = {
+    name: 'Joan',
+    age: 24,
+    hobbies: ['Sports', 'Cooking'],
+    role: [1, 'author']
+};
+console.log(person);
+// let favoriteActivities: string[];
+// favoriteActivities = ['Sports'];
+// for(let hobby of person.hobbies) {
+//   console.log(hobby.toUpperCase())
+//   // console.log(hobby.map())
+// }

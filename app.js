@@ -1,11 +1,25 @@
+// const person: {
+//   name: string;
+//   age: number;
+//   hobbies: string[];
+//   role: [number, string];
+// } = {
+var Role;
+(function (Role) {
+    Role["ADMIN"] = "ADMIN";
+    Role[Role["READ_ONLY"] = 100] = "READ_ONLY";
+    Role["AUTHOR"] = "AUTHOR";
+})(Role || (Role = {}));
 var person = {
-    // const person = {
-    name: 'Joan',
+    name: "Joan",
     age: 24,
-    hobbies: ['Sports', 'Cooking'],
-    role: [1, 'author']
+    hobbies: ["Sports", "Cooking"],
+    role: Role.ADMIN
 };
-console.log(person);
+if (person.role === Role.AUTHOR) {
+    console.log("is author");
+}
+// console.log(person)
 // let favoriteActivities: string[];
 // favoriteActivities = ['Sports'];
 // for(let hobby of person.hobbies) {

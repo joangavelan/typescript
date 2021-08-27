@@ -1,33 +1,20 @@
-// const person: {
-//   name: string;
-//   age: number;
-//   hobbies: string[];
-//   role: [number, string];
-// } = {
+function combine(input1: number | string, input2: number | string) {
+  let result;
 
-enum Role {
-  ADMIN = 'ADMIN',
-  READ_ONLY = 100,
-  AUTHOR = 'AUTHOR',
+  if (typeof input1 === "number" && typeof input2 === "number") {
+    result = input1 + input2;
+  } else if (typeof input1 === "string" && typeof input2 == "string") {
+    result = input1.toString() + " " + input2.toString();
+  } else {
+    console.log(
+      "ERR: Both parameters need to be of the same data type (numbers or strings)"
+    );
+  }
+  return result;
 }
 
-const person = {
-  name: "Joan",
-  age: 24,
-  hobbies: ["Sports", "Cooking"],
-  role: Role.ADMIN,
-};
+const combineAges = combine(30, 26);
+const combineNames = combine("Max", "Anna");
 
-if (person.role === Role.AUTHOR) {
-  console.log("is author");
-}
-
-// console.log(person)
-
-// let favoriteActivities: string[];
-// favoriteActivities = ['Sports'];
-
-// for(let hobby of person.hobbies) {
-//   console.log(hobby.toUpperCase())
-//   // console.log(hobby.map())
-// }
+console.log(combineAges);
+console.log(combineNames);

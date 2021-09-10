@@ -1,10 +1,24 @@
-const addNumbers = (...numbers: number[]) => numbers.reduce((a, b) => a + b);
+// const hobbies = ['Sports', 'Cooking']
 
-console.log(addNumbers(2, 3, 7, 5));
+// const [hobbie1, hobbie2] = hobbies;
+
+// console.log(hobbies, hobbie1, hobbie2)
+
+// const cat = {
+//   name: 'tigre',
+//   age: 2
+// }
+
+// const { name: firstName, age } = cat;
+
+// console.log(firstName)
+
+// const addNumbers = (...numbers: number[]) => numbers.reduce((a, b) => a + b);
+
+// console.log(addNumbers(2, 3, 7, 5));
 
 // const printOutput: (a: string | number) => void = output => console.log(output);
 
-// const hobbies = ['Sports', 'Cooking']
 // const activeHobbies = ['Hiking', ...hobbies]
 
 // console.log(activeHobbies)

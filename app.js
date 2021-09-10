@@ -1,8 +1,14 @@
 "use strict";
-const button = document.querySelector('button');
-button === null || button === void 0 ? void 0 : button.addEventListener('click', () => {
-    console.log('click');
-});
+const addNumbers = (...numbers) => numbers.reduce((a, b) => a + b);
+console.log(addNumbers(2, 3, 7, 5));
+// const printOutput: (a: string | number) => void = output => console.log(output);
+// const hobbies = ['Sports', 'Cooking']
+// const activeHobbies = ['Hiking', ...hobbies]
+// console.log(activeHobbies)
+// const button = document.querySelector('button')
+// button?.addEventListener('click', () => {
+//   console.log('click')
+// })
 // const userName = 'Max'
 // console.log('App initialized')
 // function combine(

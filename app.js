@@ -1,15 +1,31 @@
 "use strict";
 class Department {
     constructor(n) {
+        this.employees = [];
         this.name = n;
     }
     describe() {
         console.log("Department: " + this.name);
     }
+    addEmployee(employee) {
+        this.employees.push(employee);
+    }
+    printEmployeeInformation() {
+        console.log(this.employees.length);
+        console.log(this.employees);
+    }
 }
 const MARKETING_DEPARTMENT = new Department("Marketing");
-const MARKETING_DEPARTMENT_COPY = { name: 'copy', describe: MARKETING_DEPARTMENT.describe };
-MARKETING_DEPARTMENT_COPY.describe();
+MARKETING_DEPARTMENT.addEmployee("Max");
+MARKETING_DEPARTMENT.addEmployee("Manu");
+MARKETING_DEPARTMENT.employees[2] = "Anna";
+MARKETING_DEPARTMENT.describe();
+MARKETING_DEPARTMENT.printEmployeeInformation();
+// const MARKETING_DEPARTMENT_COPY = {
+//   name: "copy",
+//   describe: MARKETING_DEPARTMENT.describe
+// };
+// MARKETING_DEPARTMENT_COPY.describe();
 // const obj1 = {
 //   id: 1,
 //   name: 'John',

@@ -18,7 +18,7 @@ class Department {
 const MARKETING_DEPARTMENT = new Department("Marketing");
 MARKETING_DEPARTMENT.addEmployee("Max");
 MARKETING_DEPARTMENT.addEmployee("Manu");
-MARKETING_DEPARTMENT.employees[2] = "Anna";
+// MARKETING_DEPARTMENT.employees[2] = "Anna";
 MARKETING_DEPARTMENT.describe();
 MARKETING_DEPARTMENT.printEmployeeInformation();
 // const MARKETING_DEPARTMENT_COPY = {

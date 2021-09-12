@@ -1,3 +1,33 @@
+class Department {
+  name: string;
+
+  constructor(n: string) {
+    this.name = n;
+  }
+
+  describe(this: Department) {
+    console.log("Department: " + this.name);
+  }
+}
+
+const MARKETING_DEPARTMENT = new Department("Marketing");
+
+const MARKETING_DEPARTMENT_COPY = { name: 'copy', describe: MARKETING_DEPARTMENT.describe }
+
+MARKETING_DEPARTMENT_COPY.describe();
+
+// const obj1 = {
+//   id: 1,
+//   name: 'John',
+//   age: 27
+// }
+
+//  const newObj = {
+//   ...obj1
+//  };
+
+//  console.log(obj1 === newObj)
+
 // const hobbies = ['Sports', 'Cooking']
 
 // const [hobbie1, hobbie2] = hobbies;
@@ -22,8 +52,6 @@
 // const activeHobbies = ['Hiking', ...hobbies]
 
 // console.log(activeHobbies)
-
-
 
 // const button = document.querySelector('button')
 // button?.addEventListener('click', () => {

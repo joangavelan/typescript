@@ -1,7 +1,7 @@
 class Department {
   // private id: number;
   // private name: string;
-  private employees: string[] = [];
+  protected employees: string[] = [];
 
   constructor(private readonly id: number, public name: string) {
     // this.id = id;
@@ -17,7 +17,7 @@ class Department {
   }
 
   printEmployeeInformation(this: Department) {
-    console.log(this.employees.length);
+    console.log("Employees: " + this.employees.length);
     console.log(this.employees);
   }
 }
@@ -29,12 +29,45 @@ class ITDeparment extends Department {
   }
 }
 
-const IT_DEPARTMENT = new ITDeparment(2, ["Max"]);
+class AccountingDepartment extends Department {
+  constructor(id: number, private reports: string[]) {
+    super(id, "Accounting");
+  }
 
-IT_DEPARTMENT.describe();
-IT_DEPARTMENT.addEmployee("Tatiana");
+  addEmployee(name: string) {
+    if (name === "Max") return;
 
-console.log(IT_DEPARTMENT);
+    this.employees.push(name);
+  }
+
+  addReport(text: string) {
+    this.reports.push(text);
+  }
+
+  printReports() {
+    console.log(this.reports);
+  }
+}
+
+const ACCOUNTING_DEPARTMENT = new AccountingDepartment(2, []);
+
+ACCOUNTING_DEPARTMENT.addReport("New report");
+ACCOUNTING_DEPARTMENT.addReport("Another report");
+ACCOUNTING_DEPARTMENT.addEmployee("Max");
+ACCOUNTING_DEPARTMENT.addEmployee("Manu");
+ACCOUNTING_DEPARTMENT.addEmployee("Thomas");
+
+// ACCOUNTING_DEPARTMENT.printReports();
+// ACCOUNTING_DEPARTMENT.printEmployeeInformation();
+
+console.log(ACCOUNTING_DEPARTMENT);
+
+// const IT_DEPARTMENT = new ITDeparment(2, ["Max"]);
+
+// IT_DEPARTMENT.describe();
+// IT_DEPARTMENT.addEmployee("Tatiana");
+
+// console.log(IT_DEPARTMENT);
 
 // const MARKETING_DEPARTMENT = new Department(1, "Marketing");
 

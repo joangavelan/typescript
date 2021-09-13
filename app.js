@@ -1,11 +1,16 @@
 "use strict";
 class Department {
-    constructor(n) {
+    constructor(id, name) {
+        this.id = id;
+        this.name = name;
+        // private id: number;
+        // private name: string;
         this.employees = [];
-        this.name = n;
+        // this.id = id;
+        // this.name = n;
     }
     describe() {
-        console.log("Department: " + this.name);
+        console.log(`Department: (${this.id}): ${this.name}`);
     }
     addEmployee(employee) {
         this.employees.push(employee);
@@ -15,7 +20,7 @@ class Department {
         console.log(this.employees);
     }
 }
-const MARKETING_DEPARTMENT = new Department("Marketing");
+const MARKETING_DEPARTMENT = new Department(1, "Marketing");
 MARKETING_DEPARTMENT.addEmployee("Max");
 MARKETING_DEPARTMENT.addEmployee("Manu");
 // MARKETING_DEPARTMENT.employees[2] = "Anna";

@@ -20,12 +20,23 @@ class Department {
         console.log(this.employees);
     }
 }
-const MARKETING_DEPARTMENT = new Department(1, "Marketing");
-MARKETING_DEPARTMENT.addEmployee("Max");
-MARKETING_DEPARTMENT.addEmployee("Manu");
-// MARKETING_DEPARTMENT.employees[2] = "Anna";
-MARKETING_DEPARTMENT.describe();
-MARKETING_DEPARTMENT.printEmployeeInformation();
+class ITDeparment extends Department {
+    constructor(id, admins) {
+        super(id, "IT");
+        this.admins = admins;
+        this.admins = admins;
+    }
+}
+const IT_DEPARTMENT = new ITDeparment(2, ["Max"]);
+IT_DEPARTMENT.describe();
+IT_DEPARTMENT.addEmployee("Tatiana");
+console.log(IT_DEPARTMENT);
+// const MARKETING_DEPARTMENT = new Department(1, "Marketing");
+// MARKETING_DEPARTMENT.addEmployee("Max");
+// MARKETING_DEPARTMENT.addEmployee("Manu");
+// // MARKETING_DEPARTMENT.employees[2] = "Anna";
+// MARKETING_DEPARTMENT.describe();
+// MARKETING_DEPARTMENT.printEmployeeInformation();
 // const MARKETING_DEPARTMENT_COPY = {
 //   name: "copy",
 //   describe: MARKETING_DEPARTMENT.describe

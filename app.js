@@ -22,6 +22,7 @@ class Department {
     }
 }
 Department.fiscalYear = 2020;
+// IT department
 class ITDeparment extends Department {
     constructor(id, admins) {
         super(id, "IT");
@@ -34,6 +35,7 @@ class ITDeparment extends Department {
 }
 const IT_DEPARTMENT = new ITDeparment(1, []);
 IT_DEPARTMENT.describe();
+// Accounting department
 class AccountingDepartment extends Department {
     constructor(id, reports) {
         super(id, "Accounting");
@@ -49,6 +51,11 @@ class AccountingDepartment extends Department {
         if (!value)
             throw new Error("Please pass in a valid value.");
         this.addReport(value);
+    }
+    static getInstance() {
+        if (!AccountingDepartment.instance)
+            this.instance = new AccountingDepartment(2, []);
+        return this.instance;
     }
     describe() {
         console.log("Accounting Department ID: " + this.id);
@@ -66,16 +73,19 @@ class AccountingDepartment extends Department {
         console.log(this.reports);
     }
 }
-const ACCOUNTING_DEPARTMENT = new AccountingDepartment(2, []);
+const ACCOUNTING_DEPARTMENT = AccountingDepartment.getInstance();
+const ACCOUNTING_DEPARTMENT2 = AccountingDepartment.getInstance();
+// const ACCOUNTING_DEPARTMENT = new AccountingDepartment(2, []);
 ACCOUNTING_DEPARTMENT.addReport("New report");
 ACCOUNTING_DEPARTMENT.addReport("Another report");
 ACCOUNTING_DEPARTMENT.addReport("Yet another report");
 ACCOUNTING_DEPARTMENT.addEmployee("Max");
 ACCOUNTING_DEPARTMENT.addEmployee("Manu");
 ACCOUNTING_DEPARTMENT.addEmployee("Thomas");
-ACCOUNTING_DEPARTMENT.mostRecentReport = "Last report";
+console.log(ACCOUNTING_DEPARTMENT, ACCOUNTING_DEPARTMENT2);
+// ACCOUNTING_DEPARTMENT.mostRecentReport = "Last report";
 // console.log(ACCOUNTING_DEPARTMENT.mostRecentReport);
-ACCOUNTING_DEPARTMENT.describe();
+// ACCOUNTING_DEPARTMENT.describe();
 // const employee1 = Department.createEmploye("Max");
 // console.log(employee1, Department.fiscalYear)
 // ACCOUNTING_DEPARTMENT.printReports();

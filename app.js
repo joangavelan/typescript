@@ -8,6 +8,10 @@ class Department {
         this.employees = [];
         // this.id = id;
         // this.name = n;
+        // console.log(Department.fiscalYear);
+    }
+    static createEmploye(name) {
+        return { name };
     }
     describe() {
         console.log(`Department: (${this.id}): ${this.name}`);
@@ -20,6 +24,7 @@ class Department {
         console.log(this.employees);
     }
 }
+Department.fiscalYear = 2020;
 class ITDeparment extends Department {
     constructor(id, admins) {
         super(id, "IT");
@@ -31,6 +36,17 @@ class AccountingDepartment extends Department {
     constructor(id, reports) {
         super(id, "Accounting");
         this.reports = reports;
+        this.lastReport = reports[0];
+    }
+    get mostRecentReport() {
+        if (this.lastReport)
+            return this.lastReport;
+        throw new Error("No report found");
+    }
+    set mostRecentReport(value) {
+        if (!value)
+            throw new Error("Please pass in a valid value.");
+        this.addReport(value);
     }
     addEmployee(name) {
         if (name === "Max")
@@ -39,6 +55,7 @@ class AccountingDepartment extends Department {
     }
     addReport(text) {
         this.reports.push(text);
+        this.lastReport = text;
     }
     printReports() {
         console.log(this.reports);
@@ -47,12 +64,17 @@ class AccountingDepartment extends Department {
 const ACCOUNTING_DEPARTMENT = new AccountingDepartment(2, []);
 ACCOUNTING_DEPARTMENT.addReport("New report");
 ACCOUNTING_DEPARTMENT.addReport("Another report");
+ACCOUNTING_DEPARTMENT.addReport("Yet another report");
 ACCOUNTING_DEPARTMENT.addEmployee("Max");
 ACCOUNTING_DEPARTMENT.addEmployee("Manu");
 ACCOUNTING_DEPARTMENT.addEmployee("Thomas");
+ACCOUNTING_DEPARTMENT.mostRecentReport = "Last report";
+// console.log(ACCOUNTING_DEPARTMENT.mostRecentReport);
+const employee1 = Department.createEmploye("Max");
+console.log(employee1, Department.fiscalYear);
 // ACCOUNTING_DEPARTMENT.printReports();
 // ACCOUNTING_DEPARTMENT.printEmployeeInformation();
-console.log(ACCOUNTING_DEPARTMENT);
+// console.log(ACCOUNTING_DEPARTMENT);
 // const IT_DEPARTMENT = new ITDeparment(2, ["Max"]);
 // IT_DEPARTMENT.describe();
 // IT_DEPARTMENT.addEmployee("Tatiana");

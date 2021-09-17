@@ -1,4 +1,21 @@
 "use strict";
+function moveAnimal(animal) {
+    var speed;
+    switch (animal.type) {
+        case "bird":
+            speed = animal.flyingSpeed;
+            break;
+        case "horse":
+            speed = animal.runningSpeed;
+            break;
+    }
+    console.log("Moving at speed: " + speed);
+}
+var animal = {
+    type: "bird",
+    flyingSpeed: 89,
+};
+moveAnimal(animal);
 var e1 = {
     name: "Max",
     privileges: ["create-server"],
@@ -19,7 +36,7 @@ function printEmployeeInformation(emp) {
         console.log("Start date: " + emp.startDate);
     }
 }
-printEmployeeInformation({ name: "Manu", privileges: [] });
+// printEmployeeInformation({ name: "Manu", privileges: [] });
 var Car = /** @class */ (function () {
     function Car() {
     }

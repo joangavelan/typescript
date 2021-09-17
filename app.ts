@@ -1,3 +1,36 @@
+interface Bird {
+  type: "bird";
+  flyingSpeed: number;
+}
+
+interface Horse {
+  type: "horse";
+  runningSpeed: number;
+}
+
+type Animal = Bird | Horse;
+
+function moveAnimal(animal: Animal) {
+  let speed;
+  switch (animal.type) {
+    case "bird":
+      speed = animal.flyingSpeed;
+      break;
+    case "horse":
+      speed = animal.runningSpeed;
+      break;
+  }
+
+  console.log("Moving at speed: " + speed);
+}
+
+const animal: Animal = {
+  type: "bird",
+  flyingSpeed: 89,
+};
+
+moveAnimal(animal);
+
 type Admin = {
   name: string;
   privileges: string[];
@@ -40,7 +73,7 @@ function printEmployeeInformation(emp: UnknownEmployee) {
   }
 }
 
-printEmployeeInformation({ name: "Manu", privileges: [] });
+// printEmployeeInformation({ name: "Manu", privileges: [] });
 
 class Car {
   drive() {
@@ -65,7 +98,7 @@ const v2 = new Truck();
 
 function useVehicle(vehicle: Vehicle) {
   vehicle.drive();
-  if(vehicle instanceof Truck) {
+  if (vehicle instanceof Truck) {
     vehicle.loadCargo(1000);
   }
 }

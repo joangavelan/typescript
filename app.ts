@@ -102,3 +102,17 @@ function useVehicle(vehicle: Vehicle) {
     vehicle.loadCargo(1000);
   }
 }
+
+// const inputUserElement = <HTMLInputElement>document.getElementById("user-input")!;
+const inputUserElement = document.getElementById("user-input")! as HTMLInputElement;
+
+inputUserElement.value = 'Hi there'
+
+interface ErrorContainer {
+  [prop: string]: string;
+}
+
+const errorBag: ErrorContainer = {
+  email: 'Not a valid email',
+  username: 'Must start with a capital letter'
+}

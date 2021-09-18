@@ -64,3 +64,10 @@ function useVehicle(vehicle) {
         vehicle.loadCargo(1000);
     }
 }
+// const inputUserElement = <HTMLInputElement>document.getElementById("user-input")!;
+var inputUserElement = document.getElementById("user-input");
+inputUserElement.value = 'Hi there';
+var errorBag = {
+    email: 'Not a valid email',
+    username: 'Must start with a capital letter'
+};

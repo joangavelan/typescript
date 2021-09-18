@@ -29,7 +29,7 @@ const animal: Animal = {
   flyingSpeed: 89,
 };
 
-moveAnimal(animal);
+// moveAnimal(animal);
 
 type Admin = {
   name: string;
@@ -60,14 +60,22 @@ function add(a: string, b: number): string;
 function add(a: number, b: string): string;
 function add(a: Combinable, b: Combinable) {
   if (typeof a === "string" || typeof b === "string") {
-    return a.toString() + ' ' + b.toString();
+    return a.toString() + " " + b.toString();
   }
   return a + b;
 }
 
-const result = add('Joan', 'Gavelán');
+const result = add("Joan", "Gavelán");
 
-console.log(result)
+// console.log(result);
+
+const fetchUserData = {
+  id: 1,
+  name: "Max",
+  job: { title: "CEO", description: "My own company" },
+};
+
+// console.log(fetchUserData?.job?.title);
 
 type UnknownEmployee = Employee | Admin;
 
@@ -121,6 +129,13 @@ interface ErrorContainer {
 }
 
 const errorBag: ErrorContainer = {
-  email: 'Not a valid email',
-  username: 'Must start with a capital letter'
-}
+  email: "Not a valid email",
+  username: "Must start with a capital letter",
+};
+
+const userInput = 0;
+
+const storedData = userInput ?? "DEFAULT";
+
+console.log(storedData);
+

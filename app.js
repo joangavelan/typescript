@@ -15,7 +15,6 @@ var animal = {
     type: "bird",
     flyingSpeed: 89,
 };
-moveAnimal(animal);
 var e1 = {
     name: "Max",
     privileges: ["create-server"],
@@ -23,12 +22,17 @@ var e1 = {
 };
 function add(a, b) {
     if (typeof a === "string" || typeof b === "string") {
-        return a.toString() + ' ' + b.toString();
+        return a.toString() + " " + b.toString();
     }
     return a + b;
 }
-var result = add('Joan', 'Gavelán');
-console.log(result);
+var result = add("Joan", "Gavelán");
+// console.log(result);
+var fetchUserData = {
+    id: 1,
+    name: "Max",
+    job: { title: "CEO", description: "My own company" },
+};
 function printEmployeeInformation(emp) {
     console.log("Name: " + emp.name);
     if ("privileges" in emp) {
@@ -67,6 +71,9 @@ function useVehicle(vehicle) {
     }
 }
 var errorBag = {
-    email: 'Not a valid email',
-    username: 'Must start with a capital letter'
+    email: "Not a valid email",
+    username: "Must start with a capital letter",
 };
+var userInput = 0;
+var storedData = userInput !== null && userInput !== void 0 ? userInput : "DEFAULT";
+console.log(storedData);

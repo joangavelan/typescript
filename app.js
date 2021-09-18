@@ -23,10 +23,12 @@ var e1 = {
 };
 function add(a, b) {
     if (typeof a === "string" || typeof b === "string") {
-        return a.toString() + b.toString();
+        return a.toString() + ' ' + b.toString();
     }
     return a + b;
 }
+var result = add('Joan', 'Gavelán');
+console.log(result);
 function printEmployeeInformation(emp) {
     console.log("Name: " + emp.name);
     if ("privileges" in emp) {
@@ -64,9 +66,6 @@ function useVehicle(vehicle) {
         vehicle.loadCargo(1000);
     }
 }
-// const inputUserElement = <HTMLInputElement>document.getElementById("user-input")!;
-var inputUserElement = document.getElementById("user-input");
-inputUserElement.value = 'Hi there';
 var errorBag = {
     email: 'Not a valid email',
     username: 'Must start with a capital letter'

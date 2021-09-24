@@ -13,4 +13,4 @@ function merge(obj1, obj2) {
     return Object.assign(obj1, obj2);
 }
 var mergedObjects = merge({ name: "Max" }, { age: 30 });
-console.log(mergedObjects.name);
+console.log(mergedObjects);

@@ -1,16 +1,12 @@
 "use strict";
 // const names = ["Max", "Manu"];
 // // names[0].split(' ');
-// const promise: Promise<number> = new Promise((resolve, reject) => {
-//   setTimeout(() => {
-//     resolve(10);
-//   }, 2000);
-// });
-// promise.then(data => {
-//   // data.split(' ')
-// })
-function merge(obj1, obj2) {
-    return Object.assign(obj1, obj2);
+function countAndDescribe(elem) {
+    var descriptionText = "Got no value.";
+    if (elem.length === 1)
+        descriptionText = "Got 1 element";
+    else if (elem.length > 0)
+        descriptionText = "Got " + elem.length + " elements.";
+    return [elem, descriptionText];
 }
-var mergedObjects = merge({ name: "Max" }, { age: 30 });
-console.log(mergedObjects);
+console.log(countAndDescribe("Hi there!"));

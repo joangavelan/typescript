@@ -10,3 +10,7 @@ function countAndDescribe(elem) {
     return [elem, descriptionText];
 }
 console.log(countAndDescribe("Hi there!"));
+function extractAndConvert(obj, key) {
+    return obj[key];
+}
+console.log(extractAndConvert({ name: "Joan" }, "name"));

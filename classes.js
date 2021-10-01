@@ -1,21 +1,6 @@
 "use strict";
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var Department = /** @class */ (function () {
-    function Department(id, name) {
+class Department {
+    constructor(id, name) {
         this.id = id;
         this.name = name;
         // private id: number;
@@ -25,82 +10,71 @@ var Department = /** @class */ (function () {
         // this.name = n;
         // console.log(Department.fiscalYear);
     }
-    Department.createEmploye = function (name) {
-        return { name: name };
-    };
-    Department.prototype.addEmployee = function (employee) {
+    static createEmploye(name) {
+        return { name };
+    }
+    addEmployee(employee) {
         this.employees.push(employee);
-    };
-    Department.prototype.printEmployeeInformation = function () {
+    }
+    printEmployeeInformation() {
         console.log("Employees: " + this.employees.length);
         console.log(this.employees);
-    };
-    Department.fiscalYear = 2020;
-    return Department;
-}());
-// IT department
-var ITDeparment = /** @class */ (function (_super) {
-    __extends(ITDeparment, _super);
-    function ITDeparment(id, admins) {
-        var _this = _super.call(this, id, "IT") || this;
-        _this.admins = admins;
-        _this.admins = admins;
-        return _this;
     }
-    ITDeparment.prototype.describe = function () {
+}
+Department.fiscalYear = 2020;
+// IT department
+class ITDeparment extends Department {
+    constructor(id, admins) {
+        super(id, "IT");
+        this.admins = admins;
+        this.admins = admins;
+    }
+    describe() {
         console.log("IT Department ID: " + this.id);
-    };
-    return ITDeparment;
-}(Department));
-var IT_DEPARTMENT = new ITDeparment(1, []);
+    }
+}
+const IT_DEPARTMENT = new ITDeparment(1, []);
 IT_DEPARTMENT.describe();
 // Accounting department
-var AccountingDepartment = /** @class */ (function (_super) {
-    __extends(AccountingDepartment, _super);
-    function AccountingDepartment(id, reports) {
-        var _this = _super.call(this, id, "Accounting") || this;
-        _this.reports = reports;
-        _this.lastReport = reports[0];
-        return _this;
+class AccountingDepartment extends Department {
+    constructor(id, reports) {
+        super(id, "Accounting");
+        this.reports = reports;
+        this.lastReport = reports[0];
     }
-    Object.defineProperty(AccountingDepartment.prototype, "mostRecentReport", {
-        get: function () {
-            if (this.lastReport)
-                return this.lastReport;
-            throw new Error("No report found");
-        },
-        set: function (value) {
-            if (!value)
-                throw new Error("Please pass in a valid value.");
-            this.addReport(value);
-        },
-        enumerable: false,
-        configurable: true
-    });
-    AccountingDepartment.getInstance = function () {
+    get mostRecentReport() {
+        if (this.lastReport)
+            return this.lastReport;
+        throw new Error("No report found");
+    }
+    set mostRecentReport(value) {
+        if (!value)
+            throw new Error("Please pass in a valid value.");
+        this.addReport(value);
+    }
+    static getInstance() {
         if (!AccountingDepartment.instance)
             this.instance = new AccountingDepartment(2, []);
         return this.instance;
-    };
-    AccountingDepartment.prototype.describe = function () {
+    }
+    describe() {
         console.log("Accounting Department ID: " + this.id);
-    };
-    AccountingDepartment.prototype.addEmployee = function (name) {
+    }
+    addEmployee(name) {
         if (name === "Max")
             return;
         this.employees.push(name);
-    };
-    AccountingDepartment.prototype.addReport = function (text) {
+    }
+    addReport(text) {
         this.reports.push(text);
         this.lastReport = text;
-    };
-    AccountingDepartment.prototype.printReports = function () {
+    }
+    printReports() {
         console.log(this.reports);
-    };
-    return AccountingDepartment;
-}(Department));
-var ACCOUNTING_DEPARTMENT = AccountingDepartment.getInstance();
-var ACCOUNTING_DEPARTMENT2 = AccountingDepartment.getInstance();
+    }
+}
+const ACCOUNTING_DEPARTMENT = AccountingDepartment.getInstance();
+const ACCOUNTING_DEPARTMENT2 = AccountingDepartment.getInstance();
 // const ACCOUNTING_DEPARTMENT = new AccountingDepartment(2, []);
 ACCOUNTING_DEPARTMENT.addReport("New report");
 ACCOUNTING_DEPARTMENT.addReport("Another report");

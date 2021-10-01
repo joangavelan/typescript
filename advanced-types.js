@@ -1,6 +1,6 @@
 "use strict";
 function moveAnimal(animal) {
-    var speed;
+    let speed;
     switch (animal.type) {
         case "bird":
             speed = animal.flyingSpeed;
@@ -11,11 +11,11 @@ function moveAnimal(animal) {
     }
     console.log("Moving at speed: " + speed);
 }
-var animal = {
+const animal = {
     type: "bird",
     flyingSpeed: 89,
 };
-var e1 = {
+const e1 = {
     name: "Max",
     privileges: ["create-server"],
     startDate: new Date(),
@@ -26,10 +26,10 @@ function add(a, b) {
     }
     return a + b;
 }
-var result = add("Joan", "Gavelán");
-var resultArr = result.split(" ");
+const result = add("Joan", "Gavelán");
+const resultArr = result.split(" ");
 // console.log(arr);
-var fetchUserData = {
+const fetchUserData = {
     id: 1,
     name: "Max",
     job: { title: "CEO", description: "My own company" },
@@ -44,42 +44,36 @@ function printEmployeeInformation(emp) {
     }
 }
 // printEmployeeInformation({ name: "Manu", privileges: [] });
-var Car = /** @class */ (function () {
-    function Car() {
-    }
-    Car.prototype.drive = function () {
+class Car {
+    drive() {
         console.log("Driving...");
-    };
-    return Car;
-}());
-var Truck = /** @class */ (function () {
-    function Truck() {
     }
-    Truck.prototype.drive = function () {
+}
+class Truck {
+    drive() {
         console.log("Driving truck...");
-    };
-    Truck.prototype.loadCargo = function (amount) {
+    }
+    loadCargo(amount) {
         console.log("Loading cargo " + amount);
-    };
-    return Truck;
-}());
-var v1 = new Car();
-var v2 = new Truck();
+    }
+}
+const v1 = new Car();
+const v2 = new Truck();
 function useVehicle(vehicle) {
     vehicle.drive();
     if (vehicle instanceof Truck) {
         vehicle.loadCargo(1000);
     }
 }
-var inputUserElement = (document.getElementById("user-input"));
+const inputUserElement = (document.getElementById("user-input"));
 // const inputUserElement = document.getElementById("user-input")! as HTMLInputElement;
 inputUserElement.value = "Hi there";
-var errorBag = {
+const errorBag = {
     email: "Not a valid email",
     username: "Must start with a capital letter",
 };
-var userInput = 0;
+const userInput = 0;
 // const userInput = null;
 // const userInput = undefined;
-var storedData = userInput !== null && userInput !== void 0 ? userInput : "DEFAULT";
+const storedData = userInput !== null && userInput !== void 0 ? userInput : "DEFAULT";
 console.log(storedData);

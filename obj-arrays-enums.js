@@ -11,7 +11,7 @@ var Role;
     Role[Role["READ_ONLY"] = 100] = "READ_ONLY";
     Role["AUTHOR"] = "AUTHOR";
 })(Role || (Role = {}));
-var person = {
+const person = {
     name: "Joan",
     age: 24,
     hobbies: ["Sports", "Cooking"],

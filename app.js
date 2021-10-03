@@ -1,11 +1,4 @@
 "use strict";
-// function Logger(logString: string) {
-//   console.log("LOGGER FACTORY");
-//   return function (constructor: Function) {
-//     console.log(logString);
-//     console.log(constructor);
-//   };
-// }
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -15,27 +8,40 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
-// function WithTemplate(template: string, hookId: string) {
-//   console.log("TEMPLATE FACTORY");
-//   return function (constructor: any) {
-//     console.log("Rendering template");
-//     const HTMLelem = document.getElementById(hookId);
-//     const p = new constructor();
-//     if (HTMLelem) {
-//       HTMLelem.innerHTML = template;
-//       HTMLelem.querySelector("h1")!.textContent = p.name;
-//     }
-//   };
-// }
-// @Logger("LOGGING")
-// @WithTemplate("<h1>My Person Object</h1>", "app")
-// class Person {
-//   name = "Joan";
-//   constructor() {
-//     console.log("Creating person object...");
-//   }
-// }
-// const pers = new Person();
+function Logger(logString) {
+    console.log("LOGGER FACTORY");
+    return function (constructor) {
+        console.log(logString);
+        console.log(constructor);
+    };
+}
+function WithTemplate(template, hookId) {
+    console.log("TEMPLATE FACTORY");
+    return function (originalConstructor) {
+        return class extends originalConstructor {
+            constructor(...args) {
+                super();
+                console.log("Rendering template");
+                const HTMLelem = document.getElementById(hookId);
+                if (HTMLelem) {
+                    HTMLelem.innerHTML = template;
+                    HTMLelem.querySelector("h1").textContent = this.name;
+                }
+            }
+        };
+    };
+}
+let Person = class Person {
+    constructor() {
+        this.name = "Joan";
+        console.log("Creating person object...");
+    }
+};
+Person = __decorate([
+    Logger("LOGGING"),
+    WithTemplate("<h1>My Person Object</h1>", "app")
+], Person);
+const pers = new Person();
 // console.log(pers);
 function Log(target, properyName) {
     console.log("Propery decorator!");
